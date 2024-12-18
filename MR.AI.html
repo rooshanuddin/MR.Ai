@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        body{
+            background: linear-gradient(to right, #ff0066, #ff6600);
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+      
+            width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        textarea{
+            resize: none;
+            width: 100%;
+            margin: 0 auto;
+
+            padding: 3px;
+            font-size: 20px;
+        }
+        button{
+            background: linear-gradient(to right, #ff0066, #ff6600);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover{
+            transform: scale(1.1);
+        }
+
+
+ </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Text To Speech</h1><br><br>
+        <textarea id="textbox" rows="4" cols="50"></textarea><br><br>
+        <button id="speakbtn" onclick="speak()">Speak</button>
+    </div>
+    <script>
+        function speak() {
+            let synth = window.speechSynthesis;
+            let voice = new SpeechSynthesisUtterance(`${textbox.value}`)
+            synth.speak(voice);
+
+        }
+    </script>
+</body>
+
+</html>
