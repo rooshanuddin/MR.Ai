@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        body{
+            background: linear-gradient(to right, #ff0066, #ff6600);
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+      
+            width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        textarea{
+            resize: none;
+            width: 100%;
+            margin: 0 auto;
+
+            padding: 3px;
+            font-size: 20px;
+        }
+        button{
+            background: linear-gradient(to right, #ff0066, #ff6600);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover{
+            transform: scale(1.1);
+        }
+        @media only screen and (max-width: 600px) {
+            .container{
+                width: 70%;
+            }
+        }
+        .container{
+            max-width: 500px;
+            max-height: 500px;
+        }
+
+
+ </style>
+</head>
+
+<body>
+    <script>
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            document.addEventListener("DOMContentLoaded", function(event) {
+                var speakbtn = document.getElementById("speakbtn");
+                speakbtn.addEventListener("click", function(){
+                    setTimeout(speak, 2000);
+                });
+            });
+        }
+    </script>
+    <!-- <script>
+        document.designMode = 'on'
+        'on'
+    </script>
+<H1>Rooshan</H1> -->
+    <div class="container">
+        <h1>Text To Speech</h1><br><br>
+        <textarea id="textbox" rows="4" cols="50"></textarea><br><br>
+        <button id="speakbtn" onclick="speak()">Speak</button>
+    </div>
+    <script>
+        function speak() {
+            let synth = window.speechSynthesis;
+            let voice = new SpeechSynthesisUtterance(`${textbox.value}`)
+            synth.speak(voice);
+
+            let voices = synth.getVoices();
+            voice.lang = "ur-PK"; // For Urdu
+            voice.lang = "en-US"; // For English
+            voice.lang = "en-GB"; // For French
+            voice.lang = "en-EU"; // For French
+            voice.voice = voices[2]; 
+            voice.lang = "ar-EG"; // For Arabic (Egypt)
+            voice.lang = "zh-CN"; // For Chinese (China)
+            voice.lang = "fr-FR"; // For French (France)
+            voice.lang = "de-DE"; // For German (Germany)
+            voice.lang = "hi-IN"; // For Hindi (India)
+            voice.lang = "it-IT"; // For Italian (Italy)
+            voice.lang = "ja-JP"; // For Japanese (Japan)
+            voice.lang = "ko-KR"; // For Korean (South Korea)
+            voice.lang = "pt-BR"; // For Portuguese (Brazil)
+            voice.lang = "ru-RU"; // For Russian (Russia)
+            voice.lang = "es-ES"; // For Spanish (Spain)
+            voice.lang = "sv-SE"; // For Swedish (Sweden)
+            voice.lang = "th-TH"; // For Thai (Thailand)
+            voice.lang = "nl-NL"; // For Dutch (Netherlands)
+            voice.lang = "pl-PL"; // For Polish (Poland)
+            voice.lang = "ms-MY"; // For Malay (Malaysia)
+            voice.lang = "id-ID"; // For Indonesian (Indonesia)
+            voice.lang = "vi-VN"; // For Vietnamese (Vietnam)
+            voice.lang = "tr-TR"; // For Turkish (Turkey)
+            voice.lang = "el-GR"; // For Greek (Greece)
+            voice.lang = "ca-ES"; // For Catalan (Spain)
+            voice.lang = "cs-CZ"; // For Czech (Czech Republic)
+            voice.lang = "da-DK"; // For Danish (Denmark)
+            voice.lang = "et-EE"; // For Estonian (Estonia)
+            voice.lang = "hu-HU"; // For Hungarian (Hungary)
+            voice.lang = "fi-FI"; // For Finnish (Finland)
+            voice.lang = "lt-LT"; // For Lithuanian (Lithuania)
+            voice.lang = "lv-LV"; // For Latvian (Latvia)
+            voice.lang = "ar-SA"; // For Arabic (Saudi Arabia)
+            voice.lang = "ar-AE"; // For Arabic (United Arab Emirates)
+            voice.lang = "ar-BH"; // For Arabic (Bahrain)
+            voice.lang = "ar-DZ"; // For Arabic (Algeria)
+            voice.lang = "ar-EG"; // For Arabic (Egypt)
+            voice.lang = "ar-IQ"; // For Arabic (Iraq)
+            voice.lang = "ar-JO"; // For Arabic (Jordan)
+            voice.lang = "ar-KW"; // For Arabic (Kuwait)
+            voice.lang = "ar-LB"; // For Arabic (Lebanon)
+            voice.lang = "ar-LY"; // For Arabic (Libya)
+            voice.lang = "ar-MA"; // For Arabic (Morocco)
+            voice.lang = "ar-OM"; // For Arabic (Oman)
+            voice.lang = "ar-QA"; // For Arabic (Qatar)
+            voice.lang = "ar-SA"; // For Arabic (Saudi Arabia)
+            voice.lang = "ar-SD"; // For Arabic (Sudan)
+            voice.lang = "ar-SY"; // For Arabic (Syria)
+            voice.lang = "ar-TN"; // For Arabic (Tunisia)
+            voice.lang = "ar-YE"; // For Arabic (Yemen)
+            voice.lang = "ar-DZ"; // For Arabic (Algeria)
+        }
+    </script>
+</body>
+
+</html>
